@@ -1,19 +1,15 @@
 const esbuild = require('esbuild');
-const path = require('path');
 
 // Build JS
 esbuild.build({
-    entryPoints: ['public/js/index.js'],
+    entryPoints: ['public/js/property_rent_management.js'],
     bundle: true,
     minify: true,
     sourcemap: true,
     outfile: 'public/js/property_rent_management.min.js',
     platform: 'browser',
     target: ['es2015'],
-    format: 'iife',
-    loader: {
-        '.js': 'jsx'
-    }
+    format: 'iife'
 }).catch(() => process.exit(1));
 
 // Build CSS

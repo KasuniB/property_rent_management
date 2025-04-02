@@ -2,6 +2,10 @@
 
 {% block title %}Property Rent Management Dashboard{% endblock %}
 
+{% block style %}
+<link href="/assets/property_rent_management/css/property_rent_management.min.css" rel="stylesheet">
+{% endblock %}
+
 {% block page_content %}
 <div class="prm-dashboard">
     <div class="container">
@@ -81,14 +85,6 @@
 </div>
 {% endblock %}
 
-{% block style %}
-<style>
-    {% include "templates/includes/property_rent_management.css" %}
-</style>
-{% endblock %}
-
 {% block script %}
-<script>
-    {% include "templates/includes/property_rent_management.js" %}
-</script>
+<script src="/assets/property_rent_management/js/property_rent_management.min.js"></script>
 {% endblock %}
