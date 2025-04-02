@@ -1,22 +1,81 @@
 {% extends "templates/web.html" %}
 
-{% block title %}Property Rent Management{% endblock %}
+{% block title %}Property Rent Management Dashboard{% endblock %}
 
 {% block page_content %}
 <div class="prm-dashboard">
-    <h1>Property Rent Management</h1>
-    <div class="prm-stats">
-        <div class="prm-card">
-            <h3>Properties</h3>
-            <p>Total: {{ frappe.db.count('Property') or 0 }}</p>
+    <div class="container">
+        <h1 class="mb-4">Property Management Dashboard</h1>
+        
+        <!-- Statistics Cards -->
+        <div class="prm-stats mb-5">
+            <div class="prm-card">
+                <h3>Properties</h3>
+                <p>{{ properties_count or 0 }}</p>
+            </div>
+            <div class="prm-card">
+                <h3>Tenants</h3>
+                <p>{{ tenants_count or 0 }}</p>
+            </div>
+            <div class="prm-card">
+                <h3>Active Leases</h3>
+                <p>{{ active_leases or 0 }}</p>
+            </div>
         </div>
-        <div class="prm-card">
-            <h3>Tenants</h3>
-            <p>Total: {{ frappe.db.count('Tenant') or 0 }}</p>
-        </div>
-        <div class="prm-card">
-            <h3>Active Leases</h3>
-            <p>Total: {{ frappe.db.count('Lease', {'lease_status': 'Active'}) or 0 }}</p>
+
+        <!-- Recent Activities -->
+        <div class="row">
+            <!-- Recent Leases -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Recent Leases</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if recent_leases %}
+                        <ul class="list-unstyled">
+                            {% for lease in recent_leases %}
+                            <li class="mb-3">
+                                <strong>{{ lease.tenant }}</strong><br>
+                                Property: {{ lease.property }}<br>
+                                <small class="text-muted">
+                                    {{ lease.start_date }} to {{ lease.end_date }}
+                                </small>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p class="text-muted">No recent leases found.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Payments -->
+            <div class="col-md-6 mb-4">
+                <div class="card h-100">
+                    <div class="card-header">
+                        <h5 class="mb-0">Recent Payments</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if recent_payments %}
+                        <ul class="list-unstyled">
+                            {% for payment in recent_payments %}
+                            <li class="mb-3">
+                                <strong>{{ payment.tenant }}</strong><br>
+                                Amount: KES {{ payment.amount }}<br>
+                                <small class="text-muted">
+                                    Paid on {{ payment.payment_date }}
+                                </small>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                        {% else %}
+                        <p class="text-muted">No recent payments found.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
