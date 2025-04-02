@@ -1,0 +1,35 @@
+{% extends "templates/web.html" %}
+
+{% block title %}Property Rent Management{% endblock %}
+
+{% block page_content %}
+<div class="prm-dashboard">
+    <h1>Property Rent Management</h1>
+    <div class="prm-stats">
+        <div class="prm-card">
+            <h3>Properties</h3>
+            <p>Total: {{ frappe.db.count('Property') or 0 }}</p>
+        </div>
+        <div class="prm-card">
+            <h3>Tenants</h3>
+            <p>Total: {{ frappe.db.count('Tenant') or 0 }}</p>
+        </div>
+        <div class="prm-card">
+            <h3>Active Leases</h3>
+            <p>Total: {{ frappe.db.count('Lease', {'lease_status': 'Active'}) or 0 }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block style %}
+<style>
+    {% include "templates/includes/property_rent_management.css" %}
+</style>
+{% endblock %}
+
+{% block script %}
+<script>
+    {% include "templates/includes/property_rent_management.js" %}
+</script>
+{% endblock %}
