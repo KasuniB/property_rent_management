@@ -64,6 +64,12 @@ permission_query_conditions = {
 app_include_js = "/assets/property_rent_management/js/property_rent_management.min.js"
 app_include_css = "/assets/property_rent_management/css/property_rent_management.min.css"
 
+# Website
+# -------
+website_route_rules = [
+    {"from_route": "/property-rent-management", "to_route": "pages/index"},
+]
+
 # Testing
 # -------
 override_whitelisted_methods = {
