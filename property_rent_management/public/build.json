@@ -1,0 +1,8 @@
+{
+    "js/property_rent_management.min.js": [
+        "public/js/property_rent_management.js"
+    ],
+    "css/property_rent_management.min.css": [
+        "public/css/property_rent_management.css"
+    ]
+}
