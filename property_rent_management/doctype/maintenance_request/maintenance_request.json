@@ -1,0 +1,76 @@
+{
+    "name": "Maintenance Request",
+    "doctype": "DocType",
+    "module": "Property Rent Management",
+    "is_submittable": 1,
+    "autoname": "MREQ-.#####",
+    "fields": [
+        {
+            "fieldname": "property",
+            "label": "Property",
+            "fieldtype": "Link",
+            "options": "Property",
+            "reqd": 1
+        },
+        {
+            "fieldname": "reported_by",
+            "label": "Reported By",
+            "fieldtype": "Link",
+            "options": "Tenant",
+            "reqd": 1
+        },
+        {
+            "fieldname": "issue_type",
+            "label": "Issue Type",
+            "fieldtype": "Select",
+            "options": "Plumbing\nElectrical\nStructural\nAppliance\nGeneral",
+            "reqd": 1
+        },
+        {
+            "fieldname": "description",
+            "label": "Description",
+            "fieldtype": "Text Editor",
+            "reqd": 1
+        },
+        {
+            "fieldname": "priority",
+            "label": "Priority",
+            "fieldtype": "Select",
+            "options": "Low\nMedium\nHigh\nEmergency",
+            "default": "Medium"
+        },
+        {
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "Open\nIn Progress\nResolved\nCancelled",
+            "default": "Open"
+        },
+        {
+            "fieldname": "linked_work_order",
+            "label": "Linked Work Order",
+            "fieldtype": "Link",
+            "options": "Work Order",
+            "read_only": 1
+        },
+        {
+            "fieldname": "linked_issue",
+            "label": "Linked Issue",
+            "fieldtype": "Link",
+            "options": "Issue",
+            "read_only": 1
+        },
+        {
+            "fieldname": "resolution_notes",
+            "label": "Resolution Notes",
+            "fieldtype": "Text Editor"
+        }
+    ],
+    "links": [
+        {
+            "group": "References",
+            "link_doctype": "Property",
+            "link_fieldname": "property"
+        }
+    ]
+}

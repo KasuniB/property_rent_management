@@ -1,0 +1,176 @@
+{%- from "templates/print_formats/standard_macros.html" import add_header -%}
+<div class="page-break">
+    {{ add_header(0, 1) }}
+
+    <div class="text-center mb-4">
+        <h2>RESIDENTIAL TENANCY AGREEMENT</h2>
+        <p class="text-muted">Agreement #{{ doc.name }}</p>
+        <p><small>Made pursuant to the Kenyan Rent Restriction Act (Cap. 296) and The Landlord and Tenant Act</small></p>
+    </div>
+
+    <div class="mb-4">
+        <p>THIS AGREEMENT is made on {{ frappe.utils.get_datetime(doc.creation).strftime("%d %B %Y") }}</p>
+        <p><strong>BETWEEN</strong></p>
+        <p>The Landlord: {{ frappe.db.get_value("Property", doc.property, "owner_name") or "Property Owner" }} (hereinafter called "the Landlord")</p>
+        <p><strong>AND</strong></p>
+        <p>The Tenant: {{ frappe.db.get_value("Tenant", doc.tenant, "full_name") }} (hereinafter called "the Tenant")</p>
+    </div>
+
+    <div class="mb-4">
+        <h4>1. PROPERTY DETAILS</h4>
+        <p>The Landlord agrees to let and the Tenant agrees to take the property known as:</p>
+        <p>
+            <strong>{{ frappe.db.get_value("Property", doc.property, "property_name") }}</strong><br>
+            {{ frappe.db.get_value("Property", doc.property, "address") }}<br>
+            Type: {{ frappe.db.get_value("Property", doc.property, "property_type") }}
+        </p>
+    </div>
+
+    <div class="mb-4">
+        <h4>2. TERM AND RENT</h4>
+        <p>
+            <strong>Period:</strong> From {{ doc.get_formatted("start_date") }} to {{ doc.get_formatted("end_date") }}<br>
+            <strong>Billing Cycle:</strong> {{ doc.billing_cycle }}<br>
+            <strong>Base Rent:</strong> KES {{ doc.get_formatted("rent_amount") }} per month<br>
+            {% if doc.include_vat %}
+            <strong>VAT (16%):</strong> KES {{ frappe.format_value(doc.rent_amount * 0.16, {"fieldtype": "Currency"}) }}<br>
+            <strong>Total Rent:</strong> KES {{ frappe.format_value(doc.rent_amount * 1.16, {"fieldtype": "Currency"}) }}<br>
+            {% endif %}
+        </p>
+    </div>
+
+    <div class="mb-4">
+        <h4>3. STATUTORY PROVISIONS</h4>
+        <p>This tenancy is subject to:</p>
+        <ol type="a">
+            <li>The Rent Restriction Act (Cap. 296) Laws of Kenya</li>
+            <li>The Landlord and Tenant (Shops, Hotels and Catering Establishments) Act</li>
+            <li>The Environmental Management and Coordination Act</li>
+            <li>The County Government By-laws</li>
+            <li>The Value Added Tax Act (where applicable)</li>
+        </ol>
+    </div>
+
+    <div class="mb-4">
+        <h4>4. TENANT OBLIGATIONS</h4>
+        <ol type="a">
+            <li>Pay rent on or before the 1st day of each {{ doc.billing_cycle.lower() }} period</li>
+            <li>Pay security deposit equivalent to {{ doc.billing_cycle == "Monthly" and "two" or "one" }} months' rent</li>
+            <li>Pay for utilities (electricity, water, garbage collection)</li>
+            <li>Maintain the interior in good condition</li>
+            <li>Not sublet without written consent</li>
+            <li>Allow periodic property inspections with reasonable notice</li>
+            <li>Comply with all applicable laws and regulations</li>
+        </ol>
+    </div>
+
+    <div class="mb-4">
+        <h4>5. LANDLORD OBLIGATIONS</h4>
+        <ol type="a">
+            <li>Ensure the property is habitable and in good repair</li>
+            <li>Maintain structural elements and common areas</li>
+            <li>Provide quiet enjoyment of the premises</li>
+            <li>Comply with health and safety regulations</li>
+            <li>Issue proper receipts for all payments</li>
+        </ol>
+    </div>
+
+    <div class="mb-4">
+        <h4>6. TERMINATION</h4>
+        <p>
+            <strong>Notice Period:</strong> {{ doc.billing_cycle == "Monthly" and "One month" or "Three months" }}<br>
+            <strong>Grounds for Immediate Termination:</strong>
+        </p>
+        <ol type="a">
+            <li>Non-payment of rent</li>
+            <li>Breach of agreement terms</li>
+            <li>Illegal activities on premises</li>
+            <li>As per provisions of Kenyan law</li>
+        </ol>
+    </div>
+
+    <div class="mb-4">
+        <h4>7. DISPUTE RESOLUTION</h4>
+        <p>Any disputes shall be resolved through:</p>
+        <ol type="a">
+            <li>Amicable settlement between parties</li>
+            <li>Mediation by the Rent Restriction Tribunal</li>
+            <li>Business Premises Rent Tribunal (where applicable)</li>
+            <li>Arbitration under Kenyan law</li>
+        </ol>
+    </div>
+
+    <div class="mt-5">
+        <h4>EXECUTION</h4>
+        <p>IN WITNESS WHEREOF the parties have executed this Agreement:</p>
+        
+        <div class="row mt-4">
+            <div class="col-6">
+                <p class="mb-4"><strong>LANDLORD</strong></p>
+                <p>Name: _______________________</p>
+                <p>ID/Passport: ________________</p>
+                <p>PIN: _______________________</p>
+                <p>Signature: __________________</p>
+                <p>Date: ______________________</p>
+            </div>
+            <div class="col-6">
+                <p class="mb-4"><strong>TENANT</strong></p>
+                <p>Name: _______________________</p>
+                <p>ID/Passport: ________________</p>
+                <p>PIN: _______________________</p>
+                <p>Signature: __________________</p>
+                <p>Date: ______________________</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4">
+        <h4>WITNESS</h4>
+        <div class="row">
+            <div class="col-6">
+                <p>Name: _______________________</p>
+                <p>ID/Passport: ________________</p>
+                <p>Signature: __________________</p>
+                <p>Date: ______________________</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+        <p><small>This agreement is subject to Kenyan law and jurisdiction</small></p>
+        <p><small>Generated on {{ frappe.utils.get_datetime().strftime("%Y-%m-%d %H:%M") }}</small></p>
+    </div>
+</div>
+
+<style>
+.page-break {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+h2, h4 {
+    color: #2e2e2e;
+    margin-bottom: 1rem;
+}
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+.mt-4 {
+    margin-top: 1.5rem;
+}
+.mt-5 {
+    margin-top: 3rem;
+}
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -15px;
+}
+.col-6 {
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding: 15px;
+}
+ol {
+    margin-left: 20px;
+}
+</style>

@@ -1,0 +1,83 @@
+{
+    "name": "Lease",
+    "doctype": "DocType",
+    "module": "Property Rent Management",
+    "is_submittable": 1,
+    "autoname": "LEASE-.#####",
+    "fields": [
+        {
+            "fieldname": "property",
+            "label": "Property",
+            "fieldtype": "Link",
+            "options": "Property",
+            "reqd": 1
+        },
+        {
+            "fieldname": "tenant",
+            "label": "Tenant",
+            "fieldtype": "Link",
+            "options": "Tenant",
+            "reqd": 1
+        },
+        {
+            "fieldname": "start_date",
+            "label": "Start Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "end_date",
+            "label": "End Date",
+            "fieldtype": "Date",
+            "reqd": 1
+        },
+        {
+            "fieldname": "rent_amount",
+            "label": "Rent Amount",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "billing_cycle",
+            "label": "Billing Cycle",
+            "fieldtype": "Select",
+            "options": "Monthly\nQuarterly (3 Months)\nBi-Annual (6 Months)",
+            "default": "Monthly",
+            "reqd": 1
+        },
+        {
+            "fieldname": "include_vat",
+            "label": "Include 16% VAT",
+            "fieldtype": "Check",
+            "default": 1,
+            "description": "Kenya VAT compliance"
+        },
+        {
+            "fieldname": "lease_status",
+            "label": "Lease Status",
+            "fieldtype": "Select",
+            "options": "Pending\nActive\nExpired",
+            "default": "Pending"
+        },
+        {
+            "fieldname": "linked_sales_order",
+            "label": "Linked Sales Order",
+            "fieldtype": "Link",
+            "options": "Sales Order",
+            "read_only": 1
+        },
+        {
+            "fieldname": "terms_conditions",
+            "label": "Terms & Conditions",
+            "fieldtype": "Text Editor",
+            "default": "1. Rent is due on the 1st of each month\n2. Late fee of 5% after 5 days\n3. Security deposit equals one month's rent"
+        }
+    ],
+    "links": [
+        {
+            "group": "Payments",
+            "link_doctype": "Rent Payment",
+            "link_fieldname": "linked_lease"
+        }
+    ]
+}

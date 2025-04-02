@@ -1,0 +1,64 @@
+{
+    "name": "Tenant",
+    "doctype": "DocType",
+    "module": "Property Rent Management",
+    "is_submittable": 0,
+    "autoname": "TEN-.#####",
+    "fields": [
+        {
+            "fieldname": "full_name",
+            "label": "Full Name",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "contact_number",
+            "label": "Contact Number",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "email",
+            "label": "Email",
+            "fieldtype": "Data",
+            "reqd": 1,
+            "options": "Email"
+        },
+        {
+            "fieldname": "linked_contact",
+            "label": "Linked Contact",
+            "fieldtype": "Link",
+            "options": "Contact",
+            "read_only": 1,
+            "description": "Auto-created ERPNext Contact"
+        },
+        {
+            "fieldname": "linked_customer",
+            "label": "Linked Customer",
+            "fieldtype": "Link",
+            "options": "Customer",
+            "read_only": 1,
+            "description": "Auto-created ERPNext Customer"
+        },
+        {
+            "fieldname": "id_proof",
+            "label": "ID Proof",
+            "fieldtype": "Attach",
+            "reqd": 1
+        },
+        {
+            "fieldname": "profile_image",
+            "label": "Profile Image",
+            "fieldtype": "Data",
+            "read_only": 1,
+            "default": "https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg"
+        }
+    ],
+    "links": [
+        {
+            "group": "Rental Operations",
+            "link_doctype": "Lease",
+            "link_fieldname": "tenant"
+        }
+    ]
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "doctype": "Print Format", 
+        "name": "Lease Agreement",
+        "doc_type": "Lease",
+        "standard": "No",
+        "custom_format": 1,
+        "print_format_type": "Jinja",
+        "html": "property_rent_management/doctype/lease/lease_print_format.html"
+    },
+    {
+        "doctype": "Print Format",
+        "name": "Rent Payment Receipt", 
+        "doc_type": "Rent Payment",
+        "standard": "No",
+        "custom_format": 1,
+        "print_format_type": "Jinja",
+        "html": "property_rent_management/doctype/rent_payment/rent_payment_print_format.html"
+    }
+]

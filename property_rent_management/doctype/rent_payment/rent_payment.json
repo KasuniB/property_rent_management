@@ -1,0 +1,68 @@
+{
+    "name": "Rent Payment",
+    "doctype": "DocType",
+    "module": "Property Rent Management",
+    "is_submittable": 1,
+    "autoname": "RENTPYMT-.#####",
+    "fields": [
+        {
+            "fieldname": "linked_lease",
+            "label": "Linked Lease",
+            "fieldtype": "Link",
+            "options": "Lease",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_date",
+            "label": "Payment Date",
+            "fieldtype": "Date",
+            "reqd": 1,
+            "default": "Today"
+        },
+        {
+            "fieldname": "amount_paid",
+            "label": "Amount Paid",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_method",
+            "label": "Payment Method",
+            "fieldtype": "Select",
+            "options": "Online Transfer\nCheque\nCash",
+            "reqd": 1
+        },
+        {
+            "fieldname": "payment_proof",
+            "label": "Payment Proof",
+            "fieldtype": "Attach",
+            "reqd": 1
+        },
+        {
+            "fieldname": "linked_payment_entry",
+            "label": "Linked Payment Entry",
+            "fieldtype": "Link",
+            "options": "Payment Entry",
+            "read_only": 1
+        },
+        {
+            "fieldname": "linked_sales_invoice",
+            "label": "Linked Sales Invoice",
+            "fieldtype": "Link",
+            "options": "Sales Invoice",
+            "read_only": 1
+        },
+        {
+            "fieldname": "notes",
+            "label": "Notes",
+            "fieldtype": "Text"
+        }
+    ],
+    "links": [
+        {
+            "group": "References",
+            "link_doctype": "Lease",
+            "link_fieldname": "linked_lease"
+        }
+    ]
+}

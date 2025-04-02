@@ -1,0 +1,62 @@
+{
+    "name": "Property",
+    "doctype": "DocType",
+    "module": "Property Rent Management",
+    "is_submittable": 0,
+    "autoname": "PROP-.#####",
+    "fields": [
+        {
+            "fieldname": "property_name",
+            "label": "Property Name",
+            "fieldtype": "Data",
+            "reqd": 1
+        },
+        {
+            "fieldname": "address",
+            "label": "Address",
+            "fieldtype": "Text Editor",
+            "reqd": 1
+        },
+        {
+            "fieldname": "property_type",
+            "label": "Property Type",
+            "fieldtype": "Select",
+            "options": "Apartment\nHouse\nOffice",
+            "reqd": 1
+        },
+        {
+            "fieldname": "availability_status",
+            "label": "Availability Status",
+            "fieldtype": "Select",
+            "options": "Available\nLeased\nUnder Maintenance",
+            "default": "Available"
+        },
+        {
+            "fieldname": "monthly_rent",
+            "label": "Monthly Rent",
+            "fieldtype": "Currency",
+            "reqd": 1
+        },
+        {
+            "fieldname": "linked_item",
+            "label": "Linked Item",
+            "fieldtype": "Link",
+            "options": "Item",
+            "description": "Link to ERPNext Item Master"
+        },
+        {
+            "fieldname": "image",
+            "label": "Image",
+            "fieldtype": "Data",
+            "read_only": 1,
+            "default": "https://images.pexels.com/photos/186077/pexels-photo-186077.jpeg"
+        }
+    ],
+    "links": [
+        {
+            "group": "Rental Operations",
+            "link_doctype": "Lease",
+            "link_fieldname": "property"
+        }
+    ]
+}
