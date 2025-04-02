@@ -8,7 +8,21 @@
         <div class="col-12">
             <h1>Test Page</h1>
             <p>If you can see this page, the app is installed correctly.</p>
-            <a href="/property-rent-management" class="btn btn-primary">Go to Dashboard</a>
+            
+            <div class="card mt-4">
+                <div class="card-body">
+                    <h5 class="card-title">System Statistics</h5>
+                    <ul class="list-unstyled">
+                        <li>Properties: {{ properties_count or 0 }}</li>
+                        <li>Tenants: {{ tenants_count or 0 }}</li>
+                        <li>Active Leases: {{ active_leases or 0 }}</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="mt-4">
+                <a href="/property-rent-management" class="btn btn-primary">Go to Dashboard</a>
+            </div>
         </div>
     </div>
 </div>
