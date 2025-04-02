@@ -4,7 +4,7 @@
   "description": "Property Management System for ERPNext with Kenya Market Support",
   "scripts": {
     "build": "node esbuild.js",
-    "production": "node esbuild.js --production"
+    "production": "NODE_ENV=production node esbuild.js"
   },
   "keywords": [
     "frappe",
