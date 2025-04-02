@@ -1,0 +1,22 @@
+{
+  "name": "property_rent_management",
+  "version": "0.0.1",
+  "description": "Property Management System for ERPNext with Kenya Market Support",
+  "main": "index.js",
+  "scripts": {
+    "build": "node esbuild",
+    "production": "node esbuild --production"
+  },
+  "keywords": [
+    "frappe",
+    "property-management"
+  ],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "frappe-ui": "^0.0.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.14.0"
+  }
+}
