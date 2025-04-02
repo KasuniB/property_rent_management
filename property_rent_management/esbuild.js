@@ -7,7 +7,7 @@ esbuild.build({
     bundle: true,
     minify: true,
     sourcemap: true,
-    outfile: 'public/dist/js/property_rent_management.min.js',
+    outfile: 'public/js/property_rent_management.min.js',
     platform: 'browser',
     target: ['es2015'],
     format: 'iife',
@@ -22,5 +22,5 @@ esbuild.build({
     bundle: true,
     minify: true,
     sourcemap: true,
-    outfile: 'public/dist/css/property_rent_management.min.css'
+    outfile: 'public/css/property_rent_management.min.css'
 }).catch(() => process.exit(1));
