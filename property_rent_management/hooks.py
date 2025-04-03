@@ -11,12 +11,13 @@ app_license = "MIT"
 # ------------------
 
 # include js, css files in header of desk.html
-# app_include_css = "/assets/property_rent_management/css/property_rent_management.css"
-# app_include_js = "/assets/property_rent_management/js/property_rent_management.js"
+# app_include_css = "assets/property_rent_management/css/property_rent_management.css"
+# app_include_js = "assets/property_rent_management/js/property_rent_management.js"
+
 
 # include js, css files in header of web template
-# web_include_css = "/assets/property_rent_management/css/property_rent_management.css"
-# web_include_js = "/assets/property_rent_management/js/property_rent_management.js"
+# web_include_css = "assets/property_rent_management/css/property_rent_management.css"
+# web_include_js = "assets/property_rent_management/js/property_rent_management.js"
 
 # include custom scss in every website theme (without file extension ".scss")
 # website_theme_scss = "property_rent_management/public/scss/website"
@@ -61,8 +62,9 @@ permission_query_conditions = {
 
 # Includes in <head>
 # ------------------
-app_include_js = "/assets/property_rent_management/js/property_rent_management.min.js"
-app_include_css = "/assets/property_rent_management/css/property_rent_management.min.css"
+app_include_js = "assets/property_rent_management/js/property_rent_management.min.js"
+app_include_css = "assets/property_rent_management/css/property_rent_management.min.css"
+
 
 # Website
 # -------
