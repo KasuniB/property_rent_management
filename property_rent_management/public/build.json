@@ -1,6 +1,7 @@
 {
     "js/property_rent_management.bundle.js": [
-        "public/js/property_rent_management.js"
+        "public/js/property_rent_management.js",
+        "public/js/doctype/*.js"
     ],
     "css/property_rent_management.bundle.css": [
         "public/css/property_rent_management.css"

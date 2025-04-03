@@ -9,25 +9,27 @@ app_license = "MIT"
 
 # Frontend Assets
 # ---------------
-web_include_js = {
-    "property_rent_management": [
-        "/assets/js/property_rent_management.bundle.js"
-    ]
-}
+app_include_js = [
+    "/assets/js/property_rent_management.bundle.js"
+]
 
-web_include_css = {
-    "property_rent_management": [
-        "/assets/css/property_rent_management.bundle.css"
-    ]
-}
+app_include_css = [
+    "/assets/css/property_rent_management.bundle.css"
+]
 
-app_include_js = ["/assets/js/property_rent_management.bundle.js"]
-app_include_css = ["/assets/css/property_rent_management.bundle.css"]
+# DocTypes
+# --------
+doctype_js = {
+    "Property": "public/js/doctype/property.js",
+    "Tenant": "public/js/doctype/tenant.js",
+    "Lease": "public/js/doctype/lease.js",
+    "Rent Payment": "public/js/doctype/rent_payment.js"
+}
 
 # Website Routes
 # -------------
 website_route_rules = [
-    {"from_route": "/property-rent-management", "to_route": "property_rent_management"},
+    {"from_route": "/property-rent-management", "to_route": "property_rent_management"}
 ]
 
 # Fixtures
@@ -35,27 +37,6 @@ website_route_rules = [
 fixtures = [
     {
         "doctype": "Print Format",
-        "filters": [
-            [
-                "module",
-                "in",
-                ["Property Rent Management"]
-            ]
-        ]
+        "filters": [["module", "in", ["Property Rent Management"]]]
     }
 ]
-
-# DocTypes
-# --------
-doctype_js = {
-    "Property": "public/js/property_rent_management.js",
-    "Tenant": "public/js/property_rent_management.js",
-    "Lease": "public/js/property_rent_management.js",
-    "Rent Payment": "public/js/property_rent_management.js"
-}
-
-# Page Assets
-# ----------
-page_js = {
-    "property-rent-management": "public/js/property_rent_management.js"
-}
