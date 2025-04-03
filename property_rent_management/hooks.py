@@ -7,8 +7,8 @@ app_color = "grey"
 app_email = "your@email.com"
 app_license = "MIT"
 
-app_include_js = "/assets/js/property_rent_management.bundle.js"
-app_include_css = "/assets/css/property_rent_management.bundle.css"
+app_include_js = "/assets/property_rent_management.bundle.js"
+app_include_css = "/assets/property_rent_management.bundle.css"
 
 website_route_rules = [
     {"from_route": "/property-rent-management", "to_route": "property_rent_management"}
