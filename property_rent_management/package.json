@@ -1,24 +1,28 @@
 {
   "name": "property_rent_management",
   "version": "1.0.0",
-  "description": "Property Management System for ERPNext with Kenya Market Support",
-  "main": "index.js",
+  "description": "Property Management System for ERPNext",
   "scripts": {
-    "build": "yarn run production",
-    "production": "FRAPPE_ENV=production rollup -c",
-    "dev": "FRAPPE_ENV=development rollup -c -w"
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "watch": "vite build --watch"
   },
-  "keywords": [
-    "frappe",
-    "property-management"
-  ],
-  "author": "Your Name",
-  "license": "MIT",
   "dependencies": {
-    "frappe-ui": "^0.0.1"
+    "@headlessui/vue": "^1.7.16",
+    "@heroicons/vue": "^2.0.18",
+    "frappe-ui": "^0.0.1",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.5"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "rollup": "^2.79.1"
+    "@tailwindcss/forms": "^0.5.6",
+    "@tailwindcss/typography": "^0.5.10",
+    "@vitejs/plugin-vue": "^4.4.0",
+    "autoprefixer": "^10.4.16",
+    "postcss": "^8.4.31",
+    "postcss-import": "^15.1.0",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.9"
   }
 }

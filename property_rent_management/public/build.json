@@ -1,8 +1,4 @@
 {
-    "property_rent_management.bundle.js": [
-        "public/js/property_rent_management.js"
-    ],
-    "property_rent_management.bundle.css": [
-        "public/css/property_rent_management.css"
-    ]
+    "property_rent_management.bundle.js": "public/dist/property_rent_management.bundle.js",
+    "property_rent_management.bundle.css": "public/dist/style.bundle.css"
 }

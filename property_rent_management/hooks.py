@@ -7,13 +7,28 @@ app_color = "grey"
 app_email = "your@email.com"
 app_license = "MIT"
 
-app_include_js = "/assets/property_rent_management.bundle.js"
-app_include_css = "/assets/property_rent_management.bundle.css"
+# Frontend Assets
+app_include_js = ["/assets/property_rent_management.bundle.js"]
+app_include_css = ["/assets/property_rent_management.bundle.css"]
 
+# Dependencies
+app_version = "1.0.0"
+required_apps = ["frappe"]
+
+# Development Settings
+vite_config_path = "property_rent_management/vite.config.js"
+dev_server = {
+    "host": "localhost",
+    "port": 8080,
+    "hot": True
+}
+
+# Website Routes
 website_route_rules = [
     {"from_route": "/property-rent-management", "to_route": "property_rent_management"}
 ]
 
+# Fixtures
 fixtures = [
     {
         "doctype": "Print Format",
