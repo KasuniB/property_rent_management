@@ -1,27 +1,59 @@
 frappe.provide('property_rent_management');
 
 property_rent_management = {
-    init: function () {
-        console.log("[property_rent_management] Initialized");
-
-        this.setup_property_dashboard();
-        this.setup_lease_actions();
-        this.setup_maintenance_handlers();
+    init() {
+        // Initialize app features
+        this.setupDashboard();
+        this.setupEventHandlers();
     },
 
-    setup_property_dashboard: function () {
-        console.log("Setting up property dashboard...");
+    setupDashboard() {
+        // Dashboard initialization
+        if (frappe.pages['property-rent-management']) {
+            this.initializeDashboardCharts();
+            this.loadPropertyList();
+        }
     },
 
-    setup_lease_actions: function () {
-        console.log("Setting up lease actions...");
+    setupEventHandlers() {
+        // Setup global event handlers
+        $(document).on('property_rent_management.update', () => {
+            this.refreshDashboard();
+        });
     },
 
-    setup_maintenance_handlers: function () {
-        console.log("Setting up maintenance handlers...");
+    initializeDashboardCharts() {
+        // Initialize dashboard charts
+        if (!frappe.boot.property_rent_stats) return;
+        
+        // Render charts using frappe.Chart
+        new frappe.Chart('#property-stats', {
+            data: frappe.boot.property_rent_stats,
+            type: 'bar',
+            height: 250
+        });
+    },
+
+    loadPropertyList() {
+        // Load property list
+        frappe.call({
+            method: 'property_rent_management.api.get_property_list',
+            callback: (r) => {
+                if (r.message) {
+                    this.renderPropertyList(r.message);
+                }
+            }
+        });
+    },
+
+    refreshDashboard() {
+        // Refresh dashboard data
+        this.loadPropertyList();
+        this.initializeDashboardCharts();
     }
 };
 
-$(document).ready(function () {
+// Initialize on page load
+$(document).ready(() => {
     property_rent_management.init();
 });
