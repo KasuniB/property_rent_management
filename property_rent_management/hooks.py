@@ -9,8 +9,8 @@ app_license = "MIT"
 
 # Includes in <head>
 # ------------------
-app_include_js = "/assets/property_rent_management/js/index.js"
-app_include_css = "/assets/property_rent_management/css/index.css"
+app_include_js = "/assets/property_rent_management/js/property_rent_management.min.js"
+app_include_css = "/assets/property_rent_management/css/property_rent_management.min.css"
 
 # Website
 # -------
