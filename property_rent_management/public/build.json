@@ -1,8 +1,6 @@
 {
-    "js/property_rent_management.min.js": [
-        "js/property_rent_management.js"
-    ],
-    "css/property_rent_management.min.css": [
-        "css/property_rent_management.css"
-    ]
+    "js/property_rent_management.min.js": "public/js/property_rent_management.js"
+,
+   "js/property_rent_management.min.css": "public/js/property_rent_management.css"
 }
+
