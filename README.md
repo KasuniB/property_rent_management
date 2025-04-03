@@ -1,55 +1,52 @@
-# Property Rent Management
+# Property Rent Management System
 
-A comprehensive property management system built for ERPNext, with specific features for the Kenyan market.
+A comprehensive property management system for ERPNext with Kenya market support.
 
 ## Features
 
-- Property management with ERPNext Item integration
-- Tenant management with Contact/Customer sync
-- Lease agreements with Kenya-compliant terms
-- Rent payments with VAT handling (16% Kenya VAT)
-- Maintenance request tracking
-- Flexible billing cycles (Monthly/Quarterly/Bi-Annual)
-- Professional print formats for legal documents
+- Property Management
+- Tenant Management
+- Lease Agreements
+- Rent Payments
+- Maintenance Requests
+- Kenya VAT Support (16%)
+- Real-time Dashboard
 
 ## Installation
 
+1. Get the app from GitHub:
 ```bash
-# Get the app
-bench get-app property_rent_management https://github.com/[your-username]/property_rent_management
-
-# Install on your site
-bench --site [your-site] install-app property_rent_management
-
-# Run migrations
-bench --site [your-site] migrate
+bench get-app property_rent_management https://github.com/SajmustafaKe/property_rent_management
 ```
 
-## Configuration
+2. Install on your site:
+```bash
+bench --site [your-site] install-app property_rent_management
+```
 
-1. Kenya VAT settings are automatically configured on installation
-2. Print formats are available immediately
-3. Ensure your ERPNext site has basic settings configured:
-   - Company
-   - Chart of Accounts
-   - Tax templates
+3. Build assets:
+```bash
+bench build --app property_rent_management
+```
 
-## Usage
+4. Clear cache and restart:
+```bash
+bench clear-cache
+bench restart
+```
 
-1. Create Properties
-2. Add Tenants
-3. Generate Lease Agreements
-4. Process Rent Payments
-5. Handle Maintenance Requests
+## Verification
+
+After installation, verify the app is working by visiting:
+
+1. `/verify` - Quick installation check
+2. `/test` - System statistics
+3. `/property-rent-management` - Main dashboard
+
+## Support
+
+For issues and feature requests, please create an issue on GitHub.
 
 ## License
 
 MIT
-
-## Author
-
-[Your Name]
-
-## Support
-
-For support, please raise an issue on GitHub or contact [your-email]
