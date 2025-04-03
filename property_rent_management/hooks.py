@@ -66,6 +66,7 @@ app_include_js = "assets/property_rent_management/js/property_rent_management.mi
 app_include_css = "assets/property_rent_management/css/property_rent_management.min.css"
 
 
+
 # Website
 # -------
 website_route_rules = [
