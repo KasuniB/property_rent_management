@@ -61,8 +61,8 @@ permission_query_conditions = {
 
 # Includes in <head>
 # ------------------
-app_include_js = "/assets/property_rent_management.bundle.js"
-app_include_css = "/assets/property_rent_management.bundle.css"
+app_include_js = "/assets/property_rent_management/js/property_rent_management.min.js"
+app_include_css = "/assets/property_rent_management/css/property_rent_management.min.css"
 
 # Website
 # -------
