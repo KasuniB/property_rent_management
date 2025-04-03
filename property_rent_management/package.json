@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Property Management System for ERPNext with Kenya Market Support",
   "scripts": {
-    "build": "node test_build.js",
-    "production": "NODE_ENV=production node test_build.js"
+    "build": "bench build --app property_rent_management",
+    "production": "NODE_ENV=production bench build --app property_rent_management --production"
   },
   "keywords": [
     "frappe",
